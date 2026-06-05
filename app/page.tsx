@@ -1,12 +1,11 @@
 import AsciiFooter from "./AsciiFooter";
+import ChrisPriggFlower from "./ChrisPriggFlower";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col bg-zinc-50 dark:bg-black">
-      <main className="flex flex-1 items-center justify-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-black dark:text-zinc-50">
-          Chris welcome to vibe coding
-        </h1>
+    <div className="chris-prigg-stage flex flex-1 flex-col">
+      <main className="flex flex-1 items-center justify-center p-6">
+        <ChrisPriggFlower />
       </main>
       <AsciiFooter />
     </div>
