@@ -86,11 +86,18 @@ const LETTERS: Record<string, string[]> = {
     "  \\__, |",
     "  |___/ ",
   ],
+  " ": [
+    "    ",
+    "    ",
+    "    ",
+    "    ",
+    "    ",
+    "    ",
+  ],
 };
 
-const WORD_ONE = "Christopher";
-const WORD_TWO = "Prigg";
-const TOTAL = WORD_ONE.length + WORD_TWO.length;
+const WORD = "Chris Prigg";
+const TOTAL = WORD.length;
 const REVEAL_MS = 110;
 
 function renderWord(word: string, revealed: number): string {
@@ -130,26 +137,17 @@ export default function AsciiFooter() {
     return () => window.clearInterval(id);
   }, []);
 
-  const oneRevealed = Math.min(revealed, WORD_ONE.length);
-  const twoRevealed = Math.max(0, revealed - WORD_ONE.length);
-
   return (
     <div
       role="img"
-      aria-label="Christopher Prigg"
-      className="w-full flex flex-col items-center gap-1 pt-4 pb-8 text-zinc-400 dark:text-zinc-600 select-none"
+      aria-label="Chris Prigg"
+      className="w-full flex justify-center pt-4 pb-8 text-zinc-400 dark:text-zinc-600 select-none overflow-x-auto"
     >
       <pre
         aria-hidden="true"
-        className="font-mono leading-none text-[10px] sm:text-xs md:text-sm m-0"
+        className="font-mono leading-none text-[10px] sm:text-xs md:text-sm m-0 min-h-[6em] whitespace-pre"
       >
-        {renderWord(WORD_ONE, oneRevealed)}
-      </pre>
-      <pre
-        aria-hidden="true"
-        className="font-mono leading-none text-[10px] sm:text-xs md:text-sm m-0 min-h-[6em]"
-      >
-        {renderWord(WORD_TWO, twoRevealed)}
+        {renderWord(WORD, revealed)}
       </pre>
     </div>
   );
